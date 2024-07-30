@@ -1,0 +1,32 @@
+/* homePage.css */
+html, body {
+    background-color: white;
+}
+.Card {
+    max-width: 345px;
+    margin-top: 20px;
+    background-color: beige;
+  }
+  
+  .Avatar {
+    background-color: red;
+  }
+  
+  .ExpandMore {
+    margin-left: auto;
+    transition: transform 195ms;
+  }
+  
+  .ExpandMore.expanded {
+    transform: rotate(180deg);
+  }
+  
+  .CardHeader-avatar {
+    background-color: #f44336; /* red[500] */
+  }
+  
+  .Box{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
