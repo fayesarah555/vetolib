@@ -1,0 +1,32 @@
+/* UserDetailPage.css */
+
+.userDetailContainer {
+    padding: 20px;
+  }
+  
+  .userCard {
+    max-width: 400px;
+    margin: 0 auto 20px auto;
+    text-align: center;
+  }
+  
+  .userAvatar {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin: 0 auto 20px auto;
+  }
+  
+  .userInfo {
+    margin-top: 20px;
+  }
+  
+  .userReviews {
+    margin-top: 20px;
+  }
+  
+  .reviewCard {
+    margin-bottom: 10px;
+  }
+  
