@@ -15,6 +15,9 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
+
+import homePicture from '../../assets/file.png'
 import './homePage.css';
 
 export default function HomePage() {
@@ -23,6 +26,7 @@ export default function HomePage() {
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };
+
 
     return (
         <>
@@ -37,6 +41,52 @@ export default function HomePage() {
             >
                 <TextField id="outlined-basic" label="Outlined" variant="outlined" />
             </Box>
+            <div className="homePage">
+                <img src='https://www.monchat.ca/wp-content/uploads/2020/02/fond-decran-blanc-avec-un-chien-et-un-chat-derriere-une-affiche-blanche.jpg' alt="Chien" className="homeImage" />
+                <Box className="textOverlay">
+                    <Typography variant="h1" className="title">
+                        Bienvenue sur VetoLib
+                    </Typography>
+                    <Typography variant="h2" className="subtitle">
+                        Facilitez l'accès aux soins vétérinaires
+                    </Typography>
+                </Box>
+                <Grid container spacing={2} className="homeContent">
+                    <Grid item xs={12} className="section">
+                        <Typography variant="h3">Notre Mission</Typography>
+                        <Typography>
+                            <strong>VetoLib</strong> a pour objectif de rendre les soins vétérinaires accessibles et simples pour tous les propriétaires d'animaux. Grâce à notre plateforme, vous pouvez facilement prendre rendez-vous avec des vétérinaires proches de chez vous et lire les avis laissés par d'autres utilisateurs.
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={12} className="section">
+                        <Typography variant="h3">Services Offerts</Typography>
+                        <ul>
+                            <li>
+                                <Typography>
+                                    <strong>Prise de rendez-vous en ligne</strong> : Réservez facilement des consultations avec des vétérinaires de confiance. Voyez leurs disponibilités et choisissez le créneau qui vous convient le mieux.
+                                </Typography>
+                            </li>
+                            <li>
+                                <Typography>
+                                    <strong>Avis des utilisateurs</strong> : Consultez les avis laissés par d'autres propriétaires d'animaux pour vous aider à choisir le meilleur cabinet vétérinaire.
+                                </Typography>
+                            </li>
+                        </ul>
+                    </Grid>
+                    <Grid item xs={12} className="section">
+                        <Typography variant="h3">Pour les Vétérinaires</Typography>
+                        <Typography>
+                            Vous possédez un cabinet vétérinaire ? Rejoignez VetoLib pour gérer vos rendez-vous de manière efficace et attirer de nouveaux clients grâce aux avis positifs de vos patients.
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={12} className="section">
+                        <Typography variant="h3">Nos Valeurs</Typography>
+                        <Typography>
+                            <strong>Accessibilité et Confiance</strong> : Nous croyons que chaque propriétaire d'animal mérite un accès facile et rapide aux soins vétérinaires. Nous nous engageons à créer une communauté de confiance où les avis des utilisateurs jouent un rôle clé dans l'amélioration des services.
+                        </Typography>
+                    </Grid>
+                </Grid>
+            </div>
             <Card className="Card">
                 <CardHeader
                     avatar={
@@ -111,7 +161,7 @@ export default function HomePage() {
                     </CardContent>
                 </Collapse>
             </Card>
-            
+
         </>
     );
 }
