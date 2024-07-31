@@ -4,6 +4,7 @@ import Navbar from './components/navbar/navbar'
 import SignUp from './components/signUp/signUp'
 import SignIn from './components/SignIn/SignIn'
 import HomePage from './components/homePage/homePage'
+import User from './components/user/user'
 
 import './App.css'
 
@@ -16,6 +17,7 @@ function App() {
         <Route path="/" element={<SignUp/>} />
         <Route path="/SignIn" element={<SignIn/>} />
         <Route path="/HomePage" element={<HomePage/>} />
+        <Route path="/User" element={<User/>} />
       </Routes>
     
       
