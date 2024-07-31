@@ -20,12 +20,12 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar position="static" className="app-bar">
+    <AppBar position="fixed" className="app-bar">
       <Toolbar>
         <IconButton edge="start" color="inherit" aria-label="menu" onClick={handleMenu}>
           <MenuIcon />
         </IconButton>
-        <Typography variant="h6" component="div" className="title">
+        <Typography variant="h6" component="div">
           <PetsIcon className="pets-icon" />
           VetoLib
         </Typography>
@@ -38,9 +38,7 @@ const Navbar = () => {
           size="large"
           edge="end"
           aria-label="account of current user"
-          aria-controls="menu-appbar"
-          aria-haspopup="true"
-          onClick={handleMenu}
+          component={Link} to="/User"
           color="inherit"
         >
           <AccountCircleIcon />
