@@ -1,80 +1,104 @@
 import React from 'react';
-import { Card, CardContent, CardMedia, Typography, Grid, Avatar, Box } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+import { Card, CardContent, CardMedia, Typography, Grid, Box } from '@mui/material';
+import BottomNavBar from '../BottomNavBar/BottomNavBar'; // Assurez-vous que vous avez ce composant
 import './user.css';
 
 const user = {
-  name: 'John Doe',
-  email: 'john.doe@example.com',
-  avatar: 'https://www.shutterstock.com/image-vector/hipster-cat-isolated-vector-illustration-260nw-2218372665.jpg', // Replace with a real image URL
-  bio: 'Loving pet owner and avid traveler. Proud owner of two dogs and a cat.',
-  address: '1234 Pet Street, Animal City, Petland',
-  phone: '(123) 456-7890',
-  reviews: [
-    {
-      title: 'Great Veterinarian',
-      content: 'Dr. Smith took great care of my dog. Highly recommend!',
-      date: '2024-07-30',
-    },
-    {
-      title: 'Excellent Service',
-      content: 'The clinic was clean and the staff were friendly.',
-      date: '2024-06-15',
-    },
-  ],
+    name: 'John Doe',
+    email: 'john.doe@example.com',
+    avatar: 'https://img.freepik.com/psd-gratuit/illustration-3d-avatar-profil-humain_23-2150671142.jpg?size=338&ext=jpg&ga=GA1.1.2008272138.1721952000&semt=ais_user',
+    bio: 'Amoureux des chien 🐶',
+    address: '3 rue Bikini Bottom, Aqualand',
+    phone: '0123456789',
 };
 
+const animaux = {
+    avatar: 'https://img.freepik.com/photos-premium/chiot-golden-retriever-5-mois_191971-2982.jpg',
+    nom: 'Max',
+    age: '2 ans',
+    race: 'Golden Retriever',
+    poids: '30 kg',
+    sexe: 'Mâle',
+    sterilise: 'Oui',
+};
+
+
+
+
+
 const User = () => {
-  return (
-    <Box className="userDetailContainer">
-      <Card className="userCard">
-        <CardMedia
-          component="img"
-          alt="User Avatar"
-          height="140"
-          image={user.avatar}
-          title="User Avatar"
-          className="userAvatar"
-        />
-        <CardContent>
-          <Typography variant="h5" component="div">
-            {user.name}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {user.email}
-          </Typography>
-          <Typography variant="body1" className="userBio">
-            {user.bio}
-          </Typography>
-        </CardContent>
-      </Card>
+    const navigate = useNavigate();
 
-      <Grid container spacing={2} className="userInfo">
-        <Grid item xs={12} md={6}>
-          <Typography variant="h6">Address</Typography>
-          <Typography>{user.address}</Typography>
-        </Grid>
-        <Grid item xs={12} md={6}>
-          <Typography variant="h6">Phone</Typography>
-          <Typography>{user.phone}</Typography>
-        </Grid>
-      </Grid>
+    const handleClick = () => {
+        navigate('/detaille_Animal');
+    }
+    return (
+        <Box className="userDetailContainer">
+            <Grid container spacing={2}>
+                <Grid item xs={12} md={8}>
+                    <Card className="userCard">
+                        <CardMedia
+                            component="img"
+                            alt="User Avatar"
+                            height="140"
+                            image={user.avatar}
+                            title="User Avatar"
+                            className="userAvatar"
+                        />
+                        <CardContent>
+                            <Typography variant="h5" component="div">
+                                {user.name}
+                            </Typography>
+                            <Typography variant="body2" color="text.secondary">
+                                {user.email}
+                            </Typography>
+                            <Typography variant="body1" className="userBio">
+                                {user.bio}
+                            </Typography>
+                            <hr></hr>
+                        <Grid container spacing={2} className="userInfo">
+                            <Grid item xs={12} md={6}>
+                                <Typography variant="h6">Address</Typography>
+                                <Typography>{user.address}</Typography>
+                            </Grid>
+                            <Grid item xs={12} md={6}>
+                                <Typography variant="h6">Phone</Typography>
+                                <Typography>{user.phone}</Typography>
+                            </Grid>
+                        </Grid>
+                        </CardContent>
+                    </Card>
 
-      <Box className="userReviews">
-        <Typography variant="h6">User Reviews</Typography>
-        {user.reviews.map((review, index) => (
-          <Card key={index} className="reviewCard">
-            <CardContent>
-              <Typography variant="h6">{review.title}</Typography>
-              <Typography variant="body2" color="text.secondary">
-                {review.date}
-              </Typography>
-              <Typography variant="body1">{review.content}</Typography>
-            </CardContent>
-          </Card>
-        ))}
-      </Box>
-    </Box>
-  );
+                </Grid>
+                <Grid item xs={12} md={4} >
+                <Card className="petCard" onClick={handleClick}>
+                        <CardMedia
+                            component="img"
+                            alt="Pet Avatar"
+                            image={animaux.avatar}
+                            title="Pet Avatar"
+                            className="petAvatar"
+                        />
+                        <CardContent>
+                            <Grid container spacing={2} className="petInfo">
+                                <Grid item xs={12} md={6}>
+                                    <Typography variant="h6">Nom</Typography>
+                                    <Typography>{animaux.nom}</Typography>
+                                </Grid>
+                                <Grid item xs={12} md={6}>
+                                    <Typography variant="h6">Age</Typography>
+                                    <Typography>{animaux.age}</Typography>
+                                </Grid>
+
+                            </Grid>
+                        </CardContent>
+                    </Card>
+                </Grid>
+            </Grid>
+            <BottomNavBar />
+        </Box>
+    );
 };
 
 export default User;
