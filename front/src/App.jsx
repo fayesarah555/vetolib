@@ -5,8 +5,9 @@ import SignUp from './components/signUp/signUp'
 import SignIn from './components/SignIn/SignIn'
 import HomePage from './components/homePage/homePage'
 import User from './components/user/user'
-import DetailPage from './components/detailPage/detailPage'
-
+import Commentaire from './components/commentaire/commentaire'
+import Reservation from './components/Rdv/rdv'
+import DetailAnimal from './components/Detail_Animal/detailAnimal'
 import './App.css'
 
 function App() {
@@ -19,7 +20,9 @@ function App() {
         <Route path="/SignIn" element={<SignIn/>} />
         <Route path="/HomePage" element={<HomePage/>} />
         <Route path="/User" element={<User/>} />
-        <Route path="/detail" element={<DetailPage/>} />
+        <Route path="/commentaire" element={<Commentaire/>} />
+        <Route path="/rdv" element={<Reservation/>} />
+        <Route path="/detaille_Animal" element={<DetailAnimal/>} />
       </Routes>
     
       
