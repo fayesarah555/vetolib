@@ -8,6 +8,7 @@ import User from './components/user/user'
 import Commentaire from './components/commentaire/commentaire'
 import Reservation from './components/Rdv/rdv'
 import DetailAnimal from './components/Detail_Animal/detailAnimal'
+import DetailCabinet from './components/DetailCabinet/detailCabinet'
 import './App.css'
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path="/commentaire" element={<Commentaire/>} />
         <Route path="/rdv" element={<Reservation/>} />
         <Route path="/detaille_Animal" element={<DetailAnimal/>} />
+        <Route path="/detaille_Cabinet" element={<DetailCabinet/>} />
       </Routes>
     
       
