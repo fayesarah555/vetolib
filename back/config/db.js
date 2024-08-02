@@ -1,10 +1,14 @@
-const mysql = require('mysql2');
+const mongoose = require("mongoose");
 
-const pool = mysql.createPool({
-  host: 'localhost',
-  user: 'root',
-  password: 'root',
-  database: 'vetolib',
-});
-
-module.exports = pool.promise();
+mongoose
+  .connect(
+    "mongodb+srv://" + process.env.DB_USER_PASS + "@cluster0.bi7yhrq.mongodb.net/Vetolib",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true,
+      useFindAndModify: false,
+    }
+  )
+  .then(() => console.log("Connected to MongoDB"))
+  .catch((err) => console.log("Failed to connect to MongoDB", err));
