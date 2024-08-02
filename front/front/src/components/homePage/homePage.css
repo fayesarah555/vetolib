@@ -6,6 +6,11 @@ html, body {
     max-width: 345px;
     margin-top: 20px;
     background-color: beige;
+    cursor: pointer;
+  }
+
+  .Card:hover {
+    transform: scale(1.05);
   }
   
   .Avatar {

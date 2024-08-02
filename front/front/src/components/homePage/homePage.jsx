@@ -16,6 +16,7 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
+import { useNavigate } from 'react-router-dom';
 
 import homePicture from '../../assets/file.png'
 import './homePage.css';
@@ -26,6 +27,11 @@ export default function HomePage() {
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };
+
+    const navigate = useNavigate();
+    const handleClick = () => {
+        navigate('/detaille_Cabinet');
+    }
 
 
     return (
@@ -87,7 +93,7 @@ export default function HomePage() {
                     </Grid>
                 </Grid>
             </div>
-            <Card className="Card">
+            <Card className="Card" onClick={handleClick}>
                 <CardHeader
                     avatar={
                         <Avatar aria-label="recipe" className="Avatar">
