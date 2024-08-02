@@ -1,4 +1,3 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardMedia, Typography, Grid, Box } from '@mui/material';
 import BottomNavBar from '../BottomNavBar/BottomNavBar'; // Assurez-vous que vous avez ce composant

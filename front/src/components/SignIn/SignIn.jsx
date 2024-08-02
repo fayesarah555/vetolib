@@ -1,4 +1,4 @@
-import * as React from 'react';
+
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -10,36 +10,37 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-
-function Copyright(props) {
-    return (
-        <Typography variant="body2" color="text.secondary" align="center" {...props}>
-            {'Copyright © '}
-            <Link color="inherit" href="https://mui.com/">
-                Votre site web
-            </Link>{' '}
-            {new Date().getFullYear()}
-            {'.'}
-        </Typography>
-    );
-}
-
-// TODO supprimer, cette démo ne devrait pas avoir besoin de réinitialiser le thème.
-
-const defaultTheme = createTheme();
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';  // To handle navigation after successful login
 
 export default function SignIn() {
+    const navigate = useNavigate();
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
-        console.log({
+
+        const loginData = {
             email: data.get('email'),
             password: data.get('password'),
-            animals: animalNames.filter(name => name), // Filtre les noms vides
-        });
-    };
+        };
 
+        try {
+            // Send POST request to the backend
+            const response = await axios.post('http://localhost:3000/register', loginData);
+
+            if (response.status === 200) {
+                // Handle successful login, e.g., save token, redirect user
+                console.log('Login successful:', response.data);
+
+                // Redirect to another page, e.g., home page
+                navigate('/home');
+            }
+        } catch (error) {
+            console.error('Login failed:', error.response ? error.response.data : error.message);
+            // Optionally show an error message to the user
+        }
+    };
 
     return (
         <ThemeProvider theme={defaultTheme}>
